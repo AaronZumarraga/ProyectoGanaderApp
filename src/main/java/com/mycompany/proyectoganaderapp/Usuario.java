@@ -3,22 +3,33 @@ package com.mycompany.proyectoganaderapp;
 
 /**
  *
- * @author aaron
+ * @author Leonardo
  */
 public class Usuario {
-    
+
     private String nombre;
     private String apellido;
-    private String tipo;
     private String correo;
     private String contrasena;
+    private String tipoganadero;//Independendiente,Empresa
 
-    public Usuario(String nombre, String apellido, String tipo, String correo, String contrasena) {
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String apellido, String correo, String contrasena, String tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.tipo = tipo;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.tipoganadero= tipo;
+    }
+
+    public String getTipoganadero() {
+        return tipoganadero;
+    }
+
+    public void setTipoganadero(String tipoganadero) {
+        this.tipoganadero = tipoganadero;
     }
 
     public String getNombre() {
@@ -35,14 +46,6 @@ public class Usuario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getCorreo() {
@@ -63,9 +66,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario:" + " nombre: " + nombre + ", apellido: " + apellido + ", tipo: " + tipo + ", correo: " + correo + ", contrasena: " + contrasena;
+        
+        return "tipo: " + tipoganadero +  ", nombre:" + nombre + ", apellido:" + apellido + ", correo:" + correo + ", contrasena:" + contrasena;
     }
-    
-    
-    
+
 }

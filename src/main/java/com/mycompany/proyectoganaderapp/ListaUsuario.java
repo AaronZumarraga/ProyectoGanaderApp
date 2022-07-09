@@ -1,4 +1,3 @@
-
 package com.mycompany.proyectoganaderapp;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.ArrayList;
  * @author aaron
  */
 public class ListaUsuario {
-    
+
     private ArrayList<Usuario> usuarios;
 
     public ListaUsuario() {
@@ -30,4 +29,12 @@ public class ListaUsuario {
     public ArrayList<Usuario> obtenerUsuarios() {
         return usuarios;
     }
+
+    public void inicializar() {
+        agregar(new Usuario());
+        agregar(new Usuario("Luis", "Carvajal", "luisleo@live.com", "ecua.", "Independiente"));
+        agregar(new Usuario("Leo", "Ignacio", "leo@live.com", "ecua1.", "Empresa"));
+        agregar(new Usuario("Migel", "Hernandez", "Hernandez@live.com", "escubi", "Independiente"));
+    }
+
 }
