@@ -11,6 +11,7 @@ public class Hacienda {
     private String ciudad;
     private String ubicacion;
     private int tamanio;
+    private ColaVacas cola;
 
     public Hacienda() {
 
@@ -70,6 +71,10 @@ public class Hacienda {
         return "Hacienda" + "correo=" + correo + ", identificador=" + identificador + ", ciudad=" + ciudad + ", ubicacion=" + ubicacion + ", tamanio=" + tamanio;
     }
 
+    public int numeroAnimales (){
+        return cola.tamanio();
+    }
+    
     
     
 }
