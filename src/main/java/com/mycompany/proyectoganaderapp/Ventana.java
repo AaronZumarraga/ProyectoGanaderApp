@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectoganaderapp;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author aaron
@@ -15,7 +17,18 @@ public class Ventana extends javax.swing.JFrame {
      */
     public Ventana() {
         initComponents();
+        lstvacas1.setModel(dlm);
     }
+    
+    public void listar() {
+        dlm.removeAllElements();
+        for (Vaca vaca : listav.getGanado()) {
+            dlm.addElement(vaca.toString());
+        }
+
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +81,7 @@ public class Ventana extends javax.swing.JFrame {
         raza1 = new javax.swing.JComboBox<>();
         sexo1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstvacas1 = new javax.swing.JList<>();
         btnagregar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
@@ -194,8 +207,18 @@ public class Ventana extends javax.swing.JFrame {
         jLabel5.setText("Selecciona una hacienda para:");
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -293,7 +316,7 @@ public class Ventana extends javax.swing.JFrame {
         sexo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Macho", "Hembra" }));
         sexo1.setToolTipText("");
 
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(lstvacas1);
 
         btnagregar.setText("Agregar Vaca");
         btnagregar.addActionListener(new java.awt.event.ActionListener() {
@@ -543,6 +566,9 @@ public class Ventana extends javax.swing.JFrame {
 ColaVacas colav = new ColaVacas();
 Fecha fecha = new Fecha();
 ListaVacas listav = new ListaVacas();
+DefaultListModel dlm = new DefaultListModel();
+DefaultListModel lstvacas = new DefaultListModel();
+
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Paneles.setSelectedIndex(1);
@@ -588,6 +614,9 @@ ListaVacas listav = new ListaVacas();
         // arreglr fecha 
         colav.agregar(new Vaca(idhaciendas,idganados,alias,sexo,raza,edad,vivo,Peso,produccion,codigo,edad));
         listav.registrarVaca(new Vaca(idhaciendas,idganados,alias,sexo,raza,edad,vivo,Peso,produccion,codigo,edad));
+        dlm.addElement(new Vaca(idhaciendas,idganados,alias,sexo,raza,edad,vivo,Peso,produccion,codigo,edad));
+                listar();
+
     }//GEN-LAST:event_btnagregarActionPerformed
 
     public boolean buscarporcodigo(String codigo){
@@ -645,6 +674,14 @@ ListaVacas listav = new ListaVacas();
             }
         }
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -720,7 +757,6 @@ ListaVacas listav = new ListaVacas();
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -732,6 +768,7 @@ ListaVacas listav = new ListaVacas();
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JList<String> lstHaciendas;
+    private javax.swing.JList<String> lstvacas1;
     private javax.swing.JTextField mes1;
     private javax.swing.JTextField peso1;
     private javax.swing.JComboBox<String> produccion1;
